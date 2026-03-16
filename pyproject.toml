@@ -12,10 +12,11 @@ license = { text = "Apache-2.0" }
 authors = [
   { name = "jparisu", email = "javier.paris.u@gmail.com" },
 ]
-keywords = []
+keywords = ["cards", "deck", "pdf", "latex", "yaml"]
 classifiers = [
   "Development Status :: 3 - Alpha",
   "Intended Audience :: Developers",
+  "Intended Audience :: End Users/Desktop",
   "License :: OSI Approved :: Apache Software License",
   "Programming Language :: Python :: 3",
   "Programming Language :: Python :: 3.12",
@@ -71,6 +72,15 @@ test = [
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/deck_crafter", "apps"]
+include = ["src/deck_crafter/templates/*.template"]
+
+[tool.hatch.build.targets.sdist]
+include = [
+  "src/deck_crafter/templates/*.template",
+  "examples/**",
+  "resources/**",
+  "docs/**",
+]
 
 [tool.ruff]
 line-length = 100

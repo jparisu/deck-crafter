@@ -37,9 +37,16 @@ nav:
   - Home: index.md
   - Installation: installation.md
   - Getting Started: getting-started.md
+  - Visual Interface: visual-interface.md
+  - App Interface: app-interface.md
+  - Configuration Format: configuration-format.md
   - Development: development.md
   - Changelog: changelog.md
-  - API: api/index.md
+  - API:
+      - Overview: api/index.md
+      - Core Models: api/core.md
+      - Rendering: api/rendering.md
+      - Application: api/interface.md
 
 extra:
   social:
