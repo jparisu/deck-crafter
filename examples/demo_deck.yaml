@@ -1,0 +1,142 @@
+schema_version: 1
+layouts:
+  - id: explorer_layout
+    name: Explorer Layout
+    front_root:
+      type: container
+      id: front_root
+      side: front
+      rect:
+        x: { mode: relative, value: 0.0, ref: card, unit: mm }
+        y: { mode: relative, value: 0.0, ref: card, unit: mm }
+        width: { mode: relative, value: 1.0, ref: card, unit: mm }
+        height: { mode: relative, value: 1.0, ref: card, unit: mm }
+        anchor: top_left
+      children:
+        - type: image
+          id: background
+          side: front
+          rect:
+            x: { mode: relative, value: 0.0, ref: card, unit: mm }
+            y: { mode: relative, value: 0.0, ref: card, unit: mm }
+            width: { mode: relative, value: 1.0, ref: card, unit: mm }
+            height: { mode: relative, value: 1.0, ref: card, unit: mm }
+            anchor: top_left
+          fit: cover
+          crop_anchor: center
+          clip: true
+        - type: text
+          id: title
+          side: front
+          rect:
+            x: { mode: relative, value: 0.08, ref: card, unit: mm }
+            y: { mode: relative, value: 0.08, ref: card, unit: mm }
+            width: { mode: relative, value: 0.84, ref: card, unit: mm }
+            height: { mode: relative, value: 0.14, ref: card, unit: mm }
+            anchor: top_left
+          font_family: Helvetica
+          font_size_pt: 18
+          font_color: "#ffffff"
+          align: center
+          wrap: false
+          line_height: 1.0
+        - type: text
+          id: rules
+          side: front
+          rect:
+            x: { mode: relative, value: 0.08, ref: card, unit: mm }
+            y: { mode: relative, value: 0.30, ref: card, unit: mm }
+            width: { mode: relative, value: 0.84, ref: card, unit: mm }
+            height: { mode: relative, value: 0.46, ref: card, unit: mm }
+            anchor: top_left
+          font_family: Helvetica
+          font_size_pt: 11
+          font_color: "#ffffff"
+          align: left
+          wrap: true
+          line_height: 1.2
+    back_root:
+      type: container
+      id: back_root
+      side: back
+      rect:
+        x: { mode: relative, value: 0.0, ref: card, unit: mm }
+        y: { mode: relative, value: 0.0, ref: card, unit: mm }
+        width: { mode: relative, value: 1.0, ref: card, unit: mm }
+        height: { mode: relative, value: 1.0, ref: card, unit: mm }
+        anchor: top_left
+      children:
+        - type: image
+          id: back_art
+          side: back
+          rect:
+            x: { mode: relative, value: 0.0, ref: card, unit: mm }
+            y: { mode: relative, value: 0.0, ref: card, unit: mm }
+            width: { mode: relative, value: 1.0, ref: card, unit: mm }
+            height: { mode: relative, value: 1.0, ref: card, unit: mm }
+            anchor: top_left
+          fit: cover
+          crop_anchor: center
+          clip: true
+        - type: text
+          id: back_label
+          side: back
+          rect:
+            x: { mode: relative, value: 0.08, ref: card, unit: mm }
+            y: { mode: relative, value: 0.78, ref: card, unit: mm }
+            width: { mode: relative, value: 0.84, ref: card, unit: mm }
+            height: { mode: relative, value: 0.12, ref: card, unit: mm }
+            anchor: top_left
+          font_family: Helvetica
+          font_size_pt: 14
+          font_color: "#ffffff"
+          align: center
+          wrap: false
+          line_height: 1.0
+cards:
+  - id: moon_map
+    name: Moon Map
+    layout_id: explorer_layout
+    values_front:
+      background: { type: image, path: background.jpg }
+      title: { type: text, text: "Moon Map" }
+      rules:
+        type: text
+        text: "Scout the hidden route.\nGain advantage on your next travel action."
+    values_back:
+      back_art: { type: image, path: back_side.jpeg }
+      back_label: { type: text, text: "Explorer Set" }
+  - id: dog_guide
+    name: Dog Guide
+    layout_id: explorer_layout
+    values_front:
+      background: { type: image, path: dog.jpeg }
+      title: { type: text, text: "Dog Guide" }
+      rules:
+        type: text
+        text: "Choose an ally.\nThat ally may reroll one failed challenge this turn."
+    values_back:
+      back_art: { type: image, path: back_side.jpeg }
+      back_label: { type: text, text: "Explorer Set" }
+deck:
+  id: example_deck
+  name: Example Deck
+  globals:
+    assets_root: ../resources
+    card_width_mm: 63
+    card_height_mm: 88
+    bleed_mm: 3
+    dpi: 300
+  output_pdf: generated/demo_deck.pdf
+  pdf_per_subdeck: false
+  latex:
+    engine: latexmk
+    main_template: deck.tex.template
+  subdecks:
+    - id: main
+      name: Main
+      cards:
+        - card_id: moon_map
+          copies: 1
+        - card_id: dog_guide
+          copies: 1

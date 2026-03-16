@@ -3,7 +3,7 @@ from __future__ import annotations
 from collections.abc import Mapping, Sequence
 from copy import deepcopy
 from pathlib import Path
-from typing import Any, TypeAlias, cast
+from typing import Any, cast
 
 import yaml
 
@@ -11,7 +11,7 @@ from ..names import naming_convention
 from ..structuring.GenericEnumRegistry import GenericEnumRegistry
 from ..structuring.GenericParameter import GenericParameter
 
-YamlMappingTarget: TypeAlias = type[GenericEnumRegistry] | type[GenericParameter]
+type YamlMappingTarget = type[GenericEnumRegistry] | type[GenericParameter]
 
 
 class YamlHandler:
@@ -76,7 +76,7 @@ class YamlHandler:
         *,
         concatenation_key: str = "yaml-file",
         mapping_targets: dict[str, YamlMappingTarget] | None = None,
-    ) -> "YamlHandler":
+    ) -> YamlHandler:
         """
         Build a handler from a YAML file on disk.
 
@@ -100,7 +100,7 @@ class YamlHandler:
         source_path: str | Path | None = None,
         concatenation_key: str = "yaml-file",
         mapping_targets: dict[str, YamlMappingTarget] | None = None,
-    ) -> "YamlHandler":
+    ) -> YamlHandler:
         """
         Build a handler from an in-memory dictionary.
 
@@ -271,9 +271,7 @@ class YamlHandler:
             if isinstance(value, target):
                 return value
             if not isinstance(value, Mapping):
-                raise TypeError(
-                    f"Key '{key}' must contain a mapping to build {target.__name__}."
-                )
+                raise TypeError(f"Key '{key}' must contain a mapping to build {target.__name__}.")
             return target.from_dict(value)
 
         if isinstance(value, target):
@@ -350,9 +348,7 @@ class YamlHandler:
         elif isinstance(include_value, Sequence) and not isinstance(include_value, (str, bytes)):
             raw_paths = cast(Sequence[str | Path], include_value)
         else:
-            raise TypeError(
-                f"'{self.concatenation_key}' must be a path or a sequence of paths."
-            )
+            raise TypeError(f"'{self.concatenation_key}' must be a path or a sequence of paths.")
 
         resolved_paths: list[Path] = []
         for raw_path in raw_paths:

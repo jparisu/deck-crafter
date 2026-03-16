@@ -1,18 +1,25 @@
 # Deck Crafter
 
-Welcome to the documentation for `Deck Crafter`.
+`deck-crafter` turns YAML configuration into printable card-deck PDFs.
 
-## What this project contains
+It includes three main pieces:
 
-- Python package: `deck_crafter`
-- Minimum Python version: `3.12`
-- Maintainer: `jparisu <javier.paris.u@gmail.com>`
+- A Python domain model for layouts, cards, decks, and configuration files
+- A LaTeX renderer that writes `.tex` and compiles `.pdf`
+- A local browser UI for interactive editing and preview
 
-- CLI command: `deck-crafter`
+## Main workflow
 
+1. Create or edit a YAML project file.
+2. Define one or more reusable card layouts.
+3. Bind card-specific values to layout node ids.
+4. Run `deck-crafter build` to produce the deck PDF.
 
-## Next steps
+## Documentation Map
 
-- Start with the [installation guide](installation.md)
-- Follow the [getting started guide](getting-started.md)
-- Check the [development guide](development.md)
+- [Installation](installation.md)
+- [Getting Started](getting-started.md)
+- [Visual Interface](visual-interface.md)
+- [App Interface](app-interface.md)
+- [Configuration Format](configuration-format.md)
+- [API Reference](api/index.md)

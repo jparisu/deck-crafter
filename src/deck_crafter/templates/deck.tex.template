@@ -1,0 +1,11 @@
+\documentclass{article}
+\usepackage[paperwidth=${card_width_mm}mm,paperheight=${card_height_mm}mm,margin=0mm]{geometry}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{tikz}
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\begin{document}
+\centering
+${pages}
+\end{document}

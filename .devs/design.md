@@ -769,3 +769,13 @@ The “web app path”:
 - Output PDFs are generated locally and stored under a build directory; the UI can list and open them.
 
 This architecture keeps the LaTeX/PDF “engine” decoupled from the UI, while still enabling a high-quality authoring experience that can scale from “simple templates + form edits” to “complex nested rectangle layout editing” without rewriting the core.
+
+## Implementation addendum
+
+The implemented repository keeps the same core separation between domain models, configuration loading, rendering, and UI, but uses a lighter local stack for the visual editor:
+
+- Domain/config/rendering remain in reusable Python modules.
+- The visual editor is served by Python's standard-library HTTP server.
+- The browser UI is a single HTML/JavaScript page focused on local-first editing, preview, save/load, and PDF generation.
+
+This keeps runtime dependencies minimal while preserving the required workflow.
