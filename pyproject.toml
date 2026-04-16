@@ -39,6 +39,7 @@ deck-crafter = "apps.deck_crafter_cli:main"
 [project.optional-dependencies]
 dev = [
   "build>=1.2.2",
+  "codespell>=2.4.0",
   "coverage[toml]>=7.8.0",
   "mkdocs>=1.6.0",
   "mkdocs-include-markdown-plugin>=7.0.0",
@@ -58,6 +59,7 @@ docs = [
   "mkdocstrings[python]>=0.30.0",
 ]
 lint = [
+  "codespell>=2.4.0",
   "mypy>=1.15.0",
   "ruff>=0.11.0",
 ]

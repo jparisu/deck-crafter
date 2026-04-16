@@ -22,7 +22,7 @@ Use for architecture and design decisions.
 ### `mode:dev`
 Use for design and development of new features or significant refactors.
 - Read the relevant code before editing.
-- Check previous implementations, classes and functions that may be re-used.
+- Check previous implementations, classes and functions that may be reused.
 - Update or add tests that capture the intended behavior and confirm the implementation.
 - Write down the code implementation with clear comments and docstrings.
 
