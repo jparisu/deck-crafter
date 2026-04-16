@@ -11,8 +11,6 @@
 - Optional CLI entrypoint: `deck-crafter`
 
 
-- Shared utils integration placeholder enabled in the template
-
 
 ## Installation
 

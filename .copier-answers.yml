@@ -5,7 +5,7 @@
 _src_path: "git+https://github.com/jparisu/my-templates.git"
 
 # Record the template revision when the source comes from git so updates stay reproducible.
-_commit: "9611e34"
+_commit: "1bd0095"
 
 
 # Persist the human-readable project title that feeds generated metadata and docs.
@@ -30,7 +30,7 @@ author_email: "javier.paris.u@gmail.com"
 repo_url: "https://github.com/jparisu/deck-crafter"
 
 # Persist whether the generated project keeps the shared utils dependency placeholder.
-include_utils: true
+include_utils: false
 
 # Persist whether the generated project exposes the optional CLI entrypoint.
 include_cli: true

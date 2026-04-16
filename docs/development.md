@@ -8,10 +8,6 @@
 - MkDocs for documentation
 
 
-## Shared utils
-
-This template was generated with shared utils integration enabled. Add the relevant internal dependency in `pyproject.toml` before using it.
-
 
 ## Commands
 
