@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "rules": [
+      { "tool": "Read", "pattern": "/**", "action": "deny" },
+      { "tool": "Read", "pattern": "./**", "action": "allow" },
+      { "tool": "Bash", "pattern": "cd ..", "action": "deny" },
+      { "tool": "WebFetch", "action": "deny" },
+      { "tool": "Bash", "pattern": "curl *", "action": "deny" },
+      { "tool": "Bash", "pattern": "wget *", "action": "deny" }
+    ]
+  }
+}
